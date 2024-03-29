@@ -36,12 +36,12 @@
 
 @font-face {
     font-family: "Poppins";
-    src: url("/assets/fonts/Poppins-SemiBold.ttf");
+    src: url("../assets/fonts/Poppins-SemiBold.ttf");
 }
 
 @font-face {
     font-family: "Aclonica";
-    src: url("/assets/fonts/Aclonica-Regular.ttf");
+    src: url("../assets/fonts/Aclonica-Regular.ttf");
 }
 
 * {
