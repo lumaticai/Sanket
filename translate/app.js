@@ -145,9 +145,7 @@ cameraBtn.addEventListener("click", function () {
 //   }
 // });
 
-bottomSheet.addEventListener("click", function () {
-
-}
+bottomSheet.addEventListener("click", function () {});
 
 gttsBtn.addEventListener("click", async function () {
   if (gttsBtn.style.background === "rgb(25, 48, 83)") {
