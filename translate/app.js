@@ -162,15 +162,63 @@ gttsBtn.addEventListener("click", async function () {
   }
 });
 
+// micBtn.addEventListener("click", function () {
+//   if (micBtn.style.backgroundColor === "rgb(211, 241, 233)") {
+//     micBtn.style.backgroundColor = "#62E6BF"; //active
+//     console.log("mic active");
+//   } else {
+//     micBtn.style.backgroundColor = "rgb(211, 241, 233)";
+//     console.log("mic not active");
+//   }
+// });
 micBtn.addEventListener("click", function () {
   if (micBtn.style.backgroundColor === "rgb(211, 241, 233)") {
-    micBtn.style.backgroundColor = "#62E6BF"; //active
+    micBtn.style.backgroundColor = "#62E6BF"; // Activate button
     console.log("mic active");
+
+    // Start speech recognition
+    startSpeechRecognition();
   } else {
-    micBtn.style.backgroundColor = "rgb(211, 241, 233)";
+    micBtn.style.backgroundColor = "rgb(211, 241, 233)"; // Deactivate button
     console.log("mic not active");
+
+    // Stop speech recognition
+    stopSpeechRecognition();
   }
 });
+
+let recognition;
+
+function startSpeechRecognition() {
+  // Check if SpeechRecognition is supported
+  if ("webkitSpeechRecognition" in window) {
+    // Initialize speech recognition
+    recognition = new webkitSpeechRecognition();
+    recognition.continuous = true; // Enable continuous speech recognition
+    recognition.lang = "en-US"; // Set language to English (United States)
+
+    // Event listener for speech recognition result
+    recognition.onresult = function (event) {
+      console.log(event.results[0][0].transcript);
+      const transcript = event.results[event.results.length - 1][0].transcript;
+
+      // Add the transcript to the transcript box
+      addNewTranslateLine("🔊 " + transcript);
+    };
+
+    // Start speech recognition
+    recognition.start();
+  } else {
+    console.error("SpeechRecognition is not supported in this browser.");
+  }
+}
+
+function stopSpeechRecognition() {
+  // Stop speech recognition if it's running
+  if (recognition) {
+    recognition.stop();
+  }
+}
 
 let file;
 
@@ -342,7 +390,7 @@ async function predict() {
           document.querySelector("#last-line").innerHTML !=
           prediction[i].className
         ) {
-          await addNewTranslateLine(prediction[i].className);
+          await addNewTranslateLine("👋🏻 ", prediction[i].className);
           if (gttsBtn.style.backgroundColor === "rgb(98, 230, 191)") {
             //btn active
             await tts(prediction[i].className);
