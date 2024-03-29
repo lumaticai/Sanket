@@ -303,9 +303,9 @@ async function predict() {
             if (1) {
 
                 index += 1;
-                if (index == spamFilter.length) {
-                    index = 0;
-                }
+                // if (index == spamFilter.length) {
+                //     index = 0;
+                // }
                 
                 if (document.querySelector('#last-line').innerHTML != prediction[i].className) {
                     await addNewTranslateLine(prediction[i].className);
