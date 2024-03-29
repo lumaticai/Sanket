@@ -38,7 +38,7 @@ let webcamON = false
 
 //open github repo
 document.querySelector('#webcam-banner').addEventListener('click', function() {
-    window.open('https://github.com/vivekkushalch/Indian-Sign-Language-Recognition-System/', '_blank');
+    window.open('https://github.com/lumaticai/Sanket/', '_blank');
 })
 
 
