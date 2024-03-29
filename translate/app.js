@@ -228,7 +228,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 /////////////////////////////////////
 let index = 0
-const spamFilter = ["Hello","HOW ARE YOU ?","I NEED HELP","MY","NAME","IS","J","E","T","WHAT IS THE TIME ?","THANK YOU"]
+// const spamFilter = ["Hello","HOW ARE YOU ?","I NEED HELP","MY","NAME","IS","J","E","T","WHAT IS THE TIME ?","THANK YOU"]
 let beforeTextDone = 0;
 
 /////////////////////////////////////
@@ -284,23 +284,23 @@ async function predict() {
         // }
         // const classPrediction =  prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         console.log(prediction[i].probability.toFixed(2), prediction[i].className)
-        if (prediction[i].probability.toFixed(2) >= 0.70) {
-                if (Ebool && document.querySelector('#last-line').innerHTML == "E" && prediction[i].className=="E"){
-                    Ebool=false;
-                    setTimeout(function() {addNewTranslateLine("E")}, 2000);
+        if (prediction[i].probability.toFixed(2) >= 0.90) {
+            //     if (Ebool && document.querySelector('#last-line').innerHTML == "E" && prediction[i].className=="E"){
+            //         Ebool=false;
+            //         setTimeout(function() {addNewTranslateLine("E")}, 2000);
                     
-                    // alert(11);
+            //         // alert(11);
                      
-                    if (gttsBtn.style.backgroundColor === 'rgb(212, 236, 126)') { //btn active
-                        await tts("E")
-                            // delay(0)
+            //         if (gttsBtn.style.backgroundColor === 'rgb(212, 236, 126)') { //btn active
+            //             await tts("E")
+            //                 // delay(0)
                            
-                    } else {
-                        console.log('')
-                    }
-                }
-            if (prediction[i].className == spamFilter[index]) {
-            // if (1) {
+            //         } else {
+            //             console.log('')
+            //         }
+            //     }
+            // if (prediction[i].className == spamFilter[index]) {
+            if (1) {
 
                 index += 1;
                 if (index == spamFilter.length) {
