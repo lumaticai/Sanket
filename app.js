@@ -16,7 +16,7 @@ learnCard.addEventListener("click", function() {
     window.location = './learn';
 })
 contributeCard.addEventListener("click", function() {
-    window.location = 'https://github.com/key2innovation';
+    window.location = '#';
 })
 contactUsCard.addEventListener("click", function() {
     window.location = './contact-us';
