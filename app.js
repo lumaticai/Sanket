@@ -19,7 +19,7 @@ contributeCard.addEventListener("click", function() {
     window.location = '#';
 })
 contactUsCard.addEventListener("click", function() {
-    window.location = './contact-us';
+    window.location = '#';
 })
 
 //bottom nav
