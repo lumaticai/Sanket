@@ -30,7 +30,7 @@ line.scrollIntoView({
 
 // back btn
 backBtn.addEventListener("click", function() {
-    window.location = './'
+    window.location = '../'
 })
 
 
