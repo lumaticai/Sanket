@@ -1,6 +1,8 @@
 //meta(not so imp) functions by vkc!
 
 // const modelURL = "https://teachablemachine.withgoogle.com/models/QoG5AWCXa/model.json"; //working
+//https://teachablemachine.withgoogle.com/models/rOKL3ianG/  //isl-BEST
+//https://teachablemachine.withgoogle.com/models/nGWUB3-sm/  //ASL-BEST
 const modelURL =
   "https://teachablemachine.withgoogle.com/models/QoG5AWCXa/model.json";
 
