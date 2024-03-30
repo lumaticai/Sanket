@@ -28,7 +28,7 @@ navTranslteBtn.addEventListener("click", function () {
 navSettingsBtn.addEventListener("click", function () {
   navHomeBtn.classList.remove("active-nav-btn");
   navSettingsBtn.classList.add("active-nav-btn");
-  window.location = "./settings";
+  window.location = "#";
 });
 
 const userPfp = document.getElementById("user-pfp");
