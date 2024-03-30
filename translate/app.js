@@ -20,7 +20,7 @@ let uploadBtn = document.querySelector("#upload-btn");
 let textArea = document.querySelector("#textarea");
 let backBtn = document.querySelector("#back-btn");
 let line = document.createElement("p");
-let bottomSheet = document.querySelector(".bottom-sheet");
+let bottomSheet = document.querySelector("#bottom-sheet");
 let aiSuggestText = document.querySelector("#ai-suggest-text");
 
 gttsBtn.style.background = "#193053";
@@ -145,7 +145,9 @@ cameraBtn.addEventListener("click", function () {
 //   }
 // });
 
-bottomSheet.addEventListener("click", function () {});
+bottomSheet.addEventListener("click", function () {
+  console.log("ai");
+});
 
 gttsBtn.addEventListener("click", async function () {
   if (gttsBtn.style.background === "rgb(25, 48, 83)") {
