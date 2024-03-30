@@ -224,7 +224,7 @@ async function startSpeechRecognition() {
 
       //   console.log(transcript);
       // Add the transcript to the transcript box
-      addNewTranslateLine("🔊 " + transcript);
+      addNewTranslateLine("🗣️ " + transcript);
     };
 
     // Start speech recognition
