@@ -4,11 +4,11 @@
 //https://teachablemachine.withgoogle.com/models/rOKL3ianG/  //isl-BEST
 //https://teachablemachine.withgoogle.com/models/nGWUB3-sm/  //ASL-BEST
 const modelURL =
-  "https://teachablemachine.withgoogle.com/models/QoG5AWCXa/model.json";
+  "https://teachablemachine.withgoogle.com/models/rOKL3ianG/model.json";
 
 // const metadataURL = "https://teachablemachine.withgoogle.com/models/QoG5AWCXa/metadata.json"; // working
 const metadataURL =
-  "https://teachablemachine.withgoogle.com/models/QoG5AWCXa/metadata.json";
+  "https://teachablemachine.withgoogle.com/models/rOKL3ianG/metadata.json";
 
 //https://teachablemachine.withgoogle.com/models/QoG5AWCXa/
 
@@ -424,12 +424,18 @@ async function predict() {
         // if (index == spamFilter.length) {
         //     index = 0;
         // }
+        
 
         if (
           document.querySelector("#last-line").innerHTML !=
           prediction[i].className
         ) {
-          await addNewTranslateLine("👋🏻 ", prediction[i].className);
+          // addNewTranslateLine(prediction[i].className);
+          if (prediction[i].className === "IGNORE") {
+          let ignore = "";
+        }
+else{
+          await addNewTranslateLine(prediction[i].className);
           if (gttsBtn.style.backgroundColor === "rgb(98, 230, 191)") {
             //btn active
             await tts(prediction[i].className);
@@ -437,6 +443,7 @@ async function predict() {
           } else {
             console.log("");
           }
+        }
         }
       }
 
