@@ -49,6 +49,94 @@ body {
     min-height: 100vh;
 }
 
+:root {
+    --ultraLightGreen: #D3F1E9;
+    --lightGreen: #BCF3E5;
+    --brightGreen: #62E6BF;
+    --mediumGreen: #0DA778;
+    --deepGreen: #0A7B79;
+    --navyBlue: #193053;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+}
+
+.modal-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* Center align the content */
+    background-color: var(--ultraLightGreen);
+    padding: 30px;
+    
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    max-width: 80%; /* Adjusted maximum width */
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+    color: var(--navyBlue);
+    margin-bottom: 0px; /* Add margin at the bottom for spacing */
+}
+
+textarea {
+    width: 90%;
+    min-height: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    color: var(--navyBlue);
+    resize: vertical;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px; /* Add margin at the bottom for spacing */
+    
+}
+
+#saveButton {
+    display: block;
+    margin: 0 auto; /* Center align the button */
+    padding: 12px 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--mediumGreen);
+    color: var(--ultraLightGreen);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+#saveButton:hover {
+    background-color: var(--brightGreen);
+}
+
+
 
 /***************************/
 

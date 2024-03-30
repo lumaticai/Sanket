@@ -19,13 +19,13 @@
             height: 70px;
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
             100% {
                 transform: rotate(360deg);
             }
         }
-        
+
         .center {
             position: absolute;
             top: 0;
@@ -38,7 +38,7 @@
     <script>
         // temp page redirect to actual up domain
         // window.location.href = "https://sanket.key2innovation.repl.co/";
-        document.onreadystatechange = function() {
+        document.onreadystatechange = function () {
             if (document.readyState !== "complete") {
                 document.querySelector(
                     "body").style.visibility = "hidden";
@@ -59,7 +59,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"> -->
     <!-- icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
 
     <!-- sw/pwa -->
     <link rel="manifest" href="manifest.webmanifest" />
@@ -76,6 +77,18 @@
 <body>
     <!-- loader -->
     <img src="assets/images/sanket-logo.png" id="loader" class="center" alt="loader" srcset="">
+    <div class="modal" id="detailsModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <h2>🧠 Your AI's Memory!</h2>
+            <p>Please provide any additional information that you want the AI to remember:</p>
+            <textarea id="detailsTextarea"></textarea>
+            <button id="saveButton">Save</button>
+        </div>
+    </div>
+
+
+    </div>
     <!-- top navbar cum header -->
     <nav>
         <div class="nav-cointainer">
@@ -85,10 +98,11 @@
                     <div id="user-name-underline"></div>
             </div>
             <div class="nav-right-content-wrapper">
-                <a href="/">
-                    <img id="user-pfp" src="./assets/images/sanket-logo.png">
-                    <span class="notification-badge"></span>
-                </a>
+                <!-- <a href="/"> -->
+
+                <img id="user-pfp" src="./assets/images/sanket-logo.png">
+                <span class="notification-badge"></span>
+                <!-- </a> -->
             </div>
         </div>
     </nav>

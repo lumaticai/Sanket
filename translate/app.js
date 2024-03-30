@@ -146,7 +146,8 @@ cameraBtn.addEventListener("click", function () {
 // });
 
 bottomSheet.addEventListener("click", function () {
-  console.log("ai");
+  // get the last line and do gtts
+  tts(aiSuggestText.innerText);
 });
 
 gttsBtn.addEventListener("click", async function () {
@@ -197,7 +198,7 @@ micBtn.addEventListener("click", function () {
 
 let recognition;
 
-function startSpeechRecognition() {
+async function startSpeechRecognition() {
   // Check if SpeechRecognition is supported
   if ("webkitSpeechRecognition" in window) {
     // Initialize speech recognition
@@ -207,9 +208,21 @@ function startSpeechRecognition() {
 
     // Event listener for speech recognition result
     recognition.onresult = function (event) {
-      console.log(event.results[0][0].transcript);
       const transcript = event.results[event.results.length - 1][0].transcript;
 
+      // local storage data fetch
+      const storedDetails = localStorage.getItem("details");
+      if (storedDetails) {
+        console.log("✨ asking gemini: " + transcript);
+        geminiAIChat(`I am providing you with my personal details, and a query give the answer of the query in first person language only if it is possible from the personal info provided, if you cannot generate any answer just say "..." 
+            Query:
+            "${transcript}"
+            
+            Personal Info:
+            "${storedDetails}"`);
+      }
+
+      //   console.log(transcript);
       // Add the transcript to the transcript box
       addNewTranslateLine("🔊 " + transcript);
     };
@@ -226,6 +239,24 @@ function stopSpeechRecognition() {
   if (recognition) {
     recognition.stop();
   }
+}
+
+///////////////////////////////////////////////
+/////////// GEMINI MAGIC ////////////////////
+//////////////////////////////////////////////
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+// Access your API key (see "Set up your API key" above)
+const genAI = new GoogleGenerativeAI("AIzaSyAb4g19j-Ryr3zGVMsofVjjVPWr2NSYfug");
+
+async function geminiAIChat(prompt) {
+  // For text-only input, use the gemini-pro model
+  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = response.text();
+  aiSuggestText.innerText = text;
+  console.log(text);
 }
 
 let file;
