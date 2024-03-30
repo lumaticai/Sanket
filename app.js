@@ -42,6 +42,19 @@ userPfp.addEventListener("click", () => {
   const storedDetails = localStorage.getItem("details");
   if (storedDetails) {
     detailsTextarea.value = storedDetails;
+  } else {
+    localStorage.setItem(
+      "details",
+      `My name is Ethan Singhania \n
+        I live in Bandra, Mumbai \n
+        I study at Metro Institute of Technology (MIT) \n
+        I have disability and I am Deaf and Dumb \n
+        I am proficient in Indian Sign Language \n
+        I am fluent in Hindi reading and writing \n
+        My emergency phone number is 7777777777 \n
+        My father's name is Rohan Singhania \n
+        I am 21 years old.`
+    );
   }
 });
 

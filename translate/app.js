@@ -23,6 +23,8 @@ let line = document.createElement("p");
 let bottomSheet = document.querySelector("#bottom-sheet");
 let aiSuggestText = document.querySelector("#ai-suggest-text");
 
+// set default dummy value in local storage
+
 gttsBtn.style.background = "#193053";
 
 line.className = "line";
@@ -424,7 +426,6 @@ async function predict() {
         // if (index == spamFilter.length) {
         //     index = 0;
         // }
-        
 
         if (
           document.querySelector("#last-line").innerHTML !=
@@ -432,18 +433,17 @@ async function predict() {
         ) {
           // addNewTranslateLine(prediction[i].className);
           if (prediction[i].className === "IGNORE") {
-          let ignore = "";
-        }
-else{
-          await addNewTranslateLine(prediction[i].className);
-          if (gttsBtn.style.backgroundColor === "rgb(98, 230, 191)") {
-            //btn active
-            await tts(prediction[i].className);
-            // delay(0)
+            let ignore = "";
           } else {
-            console.log("");
+            await addNewTranslateLine(prediction[i].className);
+            if (gttsBtn.style.backgroundColor === "rgb(98, 230, 191)") {
+              //btn active
+              await tts(prediction[i].className);
+              // delay(0)
+            } else {
+              console.log("");
+            }
           }
-        }
         }
       }
 
