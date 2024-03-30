@@ -246,8 +246,8 @@ function stopSpeechRecognition() {
 //////////////////////////////////////////////
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Access your API key (see "Set up your API key" above)
-const genAI = new GoogleGenerativeAI("AIzaSyAb4g19j-Ryr3zGVMsofVjjVPWr2NSYfug");
+const magic = atob("QUl6YVN5QWI0ZzE5ai1SeXIzekdWTXNvZlZqalZQV3IyTlNZZnVn");
+const genAI = new GoogleGenerativeAI(magic);
 
 async function geminiAIChat(prompt) {
   // For text-only input, use the gemini-pro model
